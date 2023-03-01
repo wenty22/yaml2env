@@ -1,0 +1,7 @@
+my-app:
+  containers:
+    env:
+      - name: ENV
+        value: "prod"
+      - name: ENDPOINT
+        value: "https://www.test.com"

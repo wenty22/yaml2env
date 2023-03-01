@@ -1,0 +1,16 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  file:
+    description: 'The yaml file path'
+    required: true
+  key:
+    description: 'The key of environment variable object'
+    required: false
+    default: 'env'
+outputs:
+  envs: # id of output
+    description: 'Environment variables'
+runs:
+  using: 'node16'
+  main: 'index.js'
