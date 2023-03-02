@@ -4,13 +4,12 @@ inputs:
   file:
     description: 'The yaml file path'
     required: true
-  key:
-    description: 'The key of environment variable object'
-    required: false
-    default: 'env'
+  key-path:
+    description: 'The key path of environment variables'
+    required: true
 outputs:
-  envs: # id of output
+  env: # id of output
     description: 'Environment variables'
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'dist/index.js'

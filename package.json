@@ -1,5 +1,5 @@
 {
-  "name": "yaml-to-env-variables",
+  "name": "yaml2env",
   "version": "1.0.0",
   "description": "yaml to env variables",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wenty22/yaml-to-env-variables.git"
+    "url": "git+https://github.com/wenty22/yaml2env.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wenty22/yaml-to-env-variables/issues"
+    "url": "https://github.com/wenty22/yaml2env/issues"
   },
-  "homepage": "https://github.com/wenty22/yaml-to-env-variables#readme",
+  "homepage": "https://github.com/wenty22/yaml2env#readme",
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",

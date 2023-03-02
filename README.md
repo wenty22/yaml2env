@@ -1,2 +1,2 @@
-# yaml-to-env-variables
+# yaml2env
 yaml to env variables

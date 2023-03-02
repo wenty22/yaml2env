@@ -1,34 +1,21 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 const yaml = require('js-yaml');
 const fs   = require('fs');
 
-function findEnvObj(obj, targetKey) {
-  for (let k in obj) {
-    const currKey = k
-    const currVal = obj[k]
-
-    if (currKey === targetKey) {
-      return currVal
-    } else if (typeof currVal === 'object') {
-      return findEnvObj(currVal, targetKey)
-    }
-  }
-}
-
 try {
   const file = core.getInput('file');
-  const key = core.getInput('key')
+  const keys = JSON.parse(core.getInput('key-path'))
 
   const doc = yaml.load(fs.readFileSync(file, 'utf8'));
-  const envs = findEnvObj(doc, key) || []
+  const output = keys.reduce((dict, key) => dict[key], doc)
 
-  envs.forEach(item => {
+  const variables = Array.isArray(output) ? output : [output]
+  variables.forEach(item => {
     const { name, value } = item
     core.exportVariable(name, value)
   })
 
-  core.setOutput("envs", JSON.stringify(envs));
+  core.setOutput("env", JSON.stringify(variables));
 
 } catch (error) {
   core.setFailed(error.message);
