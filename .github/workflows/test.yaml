@@ -13,7 +13,7 @@ jobs:
         uses: ./
         with:
           file: './test.yaml'
-          key-path: "['my-app','containers','env']"
+          key-path: '["my-app","containers","env"]'
         
       - name: Print env
         run: |
