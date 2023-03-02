@@ -1,15 +1,22 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  yaml2env_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to read env from yaml
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: wenty22/yaml2env@v1.1
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Read env
+        uses: wenty22/yaml2env@v1.0
         with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
+          file: './test.yaml'
+          key-path: ['my-app', 'containers', 'env']
+        
+      - name: Print env
+
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: |
+          echo ENV: ${{ env.ENV }}
+          echo ENDPOINT: ${{ env.ENDPOINT }}
