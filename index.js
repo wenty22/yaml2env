@@ -5,7 +5,7 @@ const fs   = require('fs');
 
 try {
   const file = core.getInput('file');
-  const keys = JSON.parse(core.getInput('key-path'))
+  const keys = core.getInput('key-path').split('.')
 
   const doc = yaml.load(fs.readFileSync(file, 'utf8'));
   const output = keys.reduce((dict, key) => dict[key], doc)
