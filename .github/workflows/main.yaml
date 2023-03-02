@@ -13,7 +13,7 @@ jobs:
         uses: wenty22/yaml2env@v1.0
         with:
           file: './test.yaml'
-          key-path: '["my-app","containers","env"]'
+          key-path: "['my-app','containers','env']"
         
       - name: Print env
         run: |
