@@ -4,6 +4,7 @@ jobs:
   yaml2env_job:
     runs-on: ubuntu-latest
     name: A job to read env from yaml
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -15,8 +16,6 @@ jobs:
           key-path: ['my-app', 'containers', 'env']
         
       - name: Print env
-
-      - name: Get the output time
         run: |
           echo ENV: ${{ env.ENV }}
           echo ENDPOINT: ${{ env.ENDPOINT }}
